@@ -1,0 +1,1643 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>-</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+</style>
+  <style type="text/css">@font-face {
+font-family: fira-sans;
+src: local("FiraSans-Regular");
+}
+@font-face {
+font-family: fira-mono;
+src: local("FiraMono-Regular");
+}
+@font-face {
+font-family: color-emoji;
+src: local("Noto Color Emoji"), local("Apple Color Emoji"), local("Segoe UI Emoji"), local("Segoe UI Symbol");
+}
+:root {
+--text-color: #24292e;
+--background-color: #ffffff;
+--alt-background-color: #f6f8fa;
+--link-color: #0366d6;
+--blockquote-text-color: #6a737d;
+--blockquote-border-color: #dfe2e5;
+--header-border-color: #eaecef;
+--hr-background-color: #e1e4e8;
+--table-tr-border-color: #c6cbd1;
+--table-td-border-color: #dfe2e5;
+--kbd-text-color: #444d56;
+--kbd-background-color: #fafbfc;
+--kbd-border-color: #c6cbd1;
+--kbd-shadow-color: #959da5;
+}
+* {
+box-sizing: border-box;
+}
+html {
+font-size: 16px;
+}
+body {
+color: var(--text-color);
+background-color: var(--background-color);
+font-family: "Fira Sans", fira-sans, sans-serif, color-emoji;
+line-height: 1.5;
+word-wrap: break-word;
+max-width: 980px;
+margin: auto;
+margin-top: 60px;
+padding: 4em;
+}
+@media screen and (max-width: 799px) {
+html {
+font-size: 14px;
+}
+body {
+padding: 1em;
+}
+}
+@media screen and (min-width: 1280px) {
+html {
+font-size: 18px;
+}
+}
+a {
+background-color: transparent;
+color: var(--link-color);
+text-decoration: none;
+}
+a:active,
+a:hover {
+outline-width: 0;
+}
+a:hover {
+text-decoration: underline;
+}
+strong {
+font-weight: bold;
+}
+img {
+border-style: none;
+}
+hr {
+box-sizing: content-box;
+height: 0.25em;
+padding: 0;
+margin: 1.5em 0;
+overflow: hidden;
+background-color: var(--hr-background-color);
+border: 0;
+}
+hr::before {
+display: table;
+content: "";
+}
+hr::after {
+display: table;
+clear: both;
+content: "";
+}
+input {
+font-family: inherit;
+font-size: inherit;
+line-height: inherit;
+margin: 0;
+overflow: visible;
+}
+[type="checkbox"] {
+box-sizing: border-box;
+padding: 0;
+}
+table {
+border-spacing: 0;
+border-collapse: collapse;
+}
+td,
+th {
+padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+font-weight: bold;
+margin: 0;
+}
+h1 {
+font-size: 2em;
+}
+h2 {
+font-size: 1.5em;
+}
+h3 {
+font-size: 1.25em;
+}
+h4 {
+font-size: 1em;
+}
+h5 {
+font-size: 0.875em;
+}
+h6 {
+font-size: 0.85em;
+}
+p {
+margin-top: 0;
+margin-bottom: 0.625em;
+}
+blockquote {
+margin: 0;
+}
+ul,
+ol {
+padding-left: 0;
+margin-top: 0;
+margin-bottom: 0;
+}
+ol ol,
+ul ol {
+list-style-type: lower-roman;
+}
+ul ul ol,
+ul ol ol,
+ol ul ol,
+ol ol ol {
+list-style-type: lower-alpha;
+}
+dd {
+margin-left: 0;
+}
+code,
+kbd,
+pre {
+font-family: "Fira Mono", fira-mono, monospace, color-emoji;
+font-size: 1em;
+word-wrap: normal;
+}
+code {
+border-radius: 0.1875em;
+font-size: 0.85em;
+padding: 0.2em 0.4em;
+margin: 0;
+}
+pre {
+margin-top: 0;
+margin-bottom: 0;
+font-size: 0.75em;
+}
+pre>code {
+padding: 0;
+margin: 0;
+font-size: 1em;
+word-break: normal;
+white-space: pre;
+background: transparent;
+border: 0;
+}
+.highlight {
+margin-bottom: 1em;
+}
+.highlight pre {
+margin-bottom: 0;
+word-break: normal;
+}
+.highlight pre,
+pre {
+padding: 1em;
+overflow: auto;
+font-size: 0.85em;
+line-height: 1.5;
+background-color: var(--alt-background-color);
+border-radius: 0.1875em;
+}
+pre code {
+background-color: transparent;
+border: 0;
+display: inline;
+padding: 0;
+margin: 0;
+overflow: visible;
+line-height: inherit;
+word-wrap: normal;
+}
+.pl-0 {
+padding-left: 0 !important;
+}
+.pl-1 {
+padding-left: 0.25em !important;
+}
+.pl-2 {
+padding-left: 0.5em !important;
+}
+.pl-3 {
+padding-left: 1em !important;
+}
+.pl-4 {
+padding-left: 1.5em !important;
+}
+.pl-5 {
+padding-left: 2em !important;
+}
+.pl-6 {
+padding-left: 2.5em !important;
+}
+.markdown-body::before {
+display: table;
+content: "";
+}
+.markdown-body::after {
+display: table;
+clear: both;
+content: "";
+}
+.markdown-body>*:first-child {
+margin-top: 0 !important;
+}
+.markdown-body>*:last-child {
+margin-bottom: 0 !important;
+}
+a:not([href]) {
+color: inherit;
+text-decoration: none;
+}
+.anchor {
+float: left;
+padding-right: 0.25em;
+margin-left: -1.25em;
+line-height: 1;
+}
+.anchor:focus {
+outline: none;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table,
+pre {
+margin-top: 0;
+margin-bottom: 1em;
+}
+blockquote {
+padding: 0 1em;
+color: var(--blockquote-text-color);
+border-left: 0.25em solid var(--blockquote-border-color);
+}
+blockquote>:first-child {
+margin-top: 0;
+}
+blockquote>:last-child {
+margin-bottom: 0;
+}
+kbd {
+display: inline-block;
+padding: 0.1875em 0.3125em;
+font-size: 0.6875em;
+line-height: 1;
+color: var(--kbd-text-color);
+vertical-align: middle;
+background-color: var(--kbd-background-color);
+border: solid 1px var(--kbd-border-color);
+border-bottom-color: var(--kbd-shadow-color);
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 var(--kbd-shadow-color);;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 1.5em;
+margin-bottom: 1em;
+font-weight: bold;
+line-height: 1.25;
+}
+h1:hover .anchor,
+h2:hover .anchor,
+h3:hover .anchor,
+h4:hover .anchor,
+h5:hover .anchor,
+h6:hover .anchor {
+text-decoration: none;
+}
+h1 {
+padding-bottom: 0.3em;
+font-size: 2em;
+border-bottom: 1px solid var(--header-border-color);
+}
+h2 {
+padding-bottom: 0.3em;
+font-size: 1.5em;
+border-bottom: 1px solid var(--header-border-color);
+}
+h3 {
+font-size: 1.25em;
+}
+h4 {
+font-size: 1em;
+}
+h5 {
+font-size: 0.875em;
+}
+h6 {
+font-size: 0.85em;
+opacity: 0.67;
+}
+ul,
+ol {
+padding-left: 2em;
+}
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+margin-top: 0;
+margin-bottom: 0;
+}
+li {
+overflow-wrap: break-word;
+}
+li>p {
+margin-top: 1em;
+}
+li+li {
+margin-top: 0.25em;
+}
+dl {
+padding: 0;
+}
+dl dt {
+padding: 0;
+margin-top: 1em;
+font-size: 1em;
+font-style: italic;
+font-weight: bold;
+}
+dl dd {
+padding: 0 1em;
+margin-bottom: 1em;
+}
+table {
+display: block;
+width: 100%;
+overflow: auto;
+}
+table th {
+font-weight: bold;
+}
+table th,
+table td {
+padding: 0.375em 0.8125em;
+border: 1px solid var(--table-td-border-color);
+}
+table tr {
+background-color: var(--background-color);
+border-top: 1px solid var(--table-tr-border-color);
+}
+table tr:nth-child(2n) {
+background-color: var(--alt-background-color);
+}
+img {
+max-width: 100%;
+box-sizing: content-box;
+}
+img[align=right] {
+padding-left: 1.25em;
+}
+img[align=left] {
+padding-right: 1.25em;
+}
+.task-list-item {
+list-style-type: none;
+}
+.task-list-item+.task-list-item {
+margin-top: 0.1875em;
+}
+.task-list-item input {
+margin: 0 0.2em 0.25em -1.6em;
+vertical-align: middle;
+}
+:root {
+--text-color: #5e3d25;
+--background-color: #f2ebe0;
+--alt-background-color: #eadfd2;
+--link-color: #00897b;
+--blockquote-text-color: #5e3d25;
+--blockquote-border-color: #dacfc2;
+--header-border-color: #927966;
+--hr-background-color: #927966;
+--table-tr-border-color: #dacfc2;
+--table-td-border-color: #dacfc2;
+--kbd-text-color: #5e3d25;
+--kbd-background-color: #dacfc2;
+--kbd-border-color: #eadfd2;
+--kbd-shadow-color: #d8c4a7;
+}</style>
+</head>
+<body>
+<h1 id="abc-szerinti-ülés-rend">ABC szerinti ülés rend</h1>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: center;">Asztal</th>
+<th style="text-align: center;">Oldal</th>
+<th style="text-align: center;">Szék</th>
+<th style="text-align: center;">Név</th>
+<th style="text-align: center;">jelen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">Andróczi Tamás Gergely</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">23</td>
+<td style="text-align: center;">Antal András</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">Balog-Virág Ágnes</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">Balogh Brúnó</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Balogh Erzsébet</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">Balogh Rita</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Balogh Rita</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">Balogh Rózsa</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Balogh Sándor</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">Baloghné Kovács Rebeka</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">Berthóty András</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">Bezdek István Györk</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">22</td>
+<td style="text-align: center;">Bódis Balázs Márk</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">21</td>
+<td style="text-align: center;">Bódisné Seidl Ágota Zita</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">Bolyos Balázs Koppány</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">21</td>
+<td style="text-align: center;">Cseresznyés Gyula</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">Csiky Ágoston</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">21</td>
+<td style="text-align: center;">Csiky Anna Mária</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">21</td>
+<td style="text-align: center;">Csiky Botond</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">19</td>
+<td style="text-align: center;">Csiky Emese Zsófia</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">Csiky Eszter</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">Csiky Mama</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">29</td>
+<td style="text-align: center;">Csiky Miklós Pál</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">Csiky Szonja</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">Csikyné dr. Pellion Szilvia</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">Csikyné Fodor Mária</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">Csikyné Radnai Éva</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">Csuzdi Péter</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">Dalmadi Bálint</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">Dion Pociask</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">Dr. Csiky János</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">Dr. Csiky László</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">22</td>
+<td style="text-align: center;">Dr. Csiky Márton Áron</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">Dr. Csiky Miklós</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">Dr. Khern Mandula Csilla</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">Dr. Kovács Zoltán</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">Dr. Mihalovics Emese</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">Dr. Péter Róbert István</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">Dr. Schandl Anna Terézia</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">Dr. Soós Gergely Miklós</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">Dr. Szűcs Erika Erzsébet</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">Dr. Telicsák Bernadett</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">Drinka Zsanett</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Egressy György László</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Egressy Marcell Tamás</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">Endrédy Balázs</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">Enyedi Mózes</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Farkas Gabriella</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">Ferencz Gyula</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">Ferencz Katalin</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">Forgács Ádám</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">Földváry Zsófia Sára</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Frecot Bálint</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">Gágyor Bálint</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">Galambos Attila Tamás</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">Galambos Lili Anna</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Galambos Róbert Zoltán</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">26</td>
+<td style="text-align: center;">Glacz Mária</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">Godány Ráhel</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">25</td>
+<td style="text-align: center;">Gödri Apolka</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">Greschik András Zsombor</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">Greschik Boglárka Sára</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">Greschik Márta Réka</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Hadarics Attila</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">Halász Márk</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">Hamar Boldizsár</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">Hegedűs Vince</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">Héjj-Csizmazia Kincső</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">26</td>
+<td style="text-align: center;">ifj. Csiky János</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">Imri Jázmin</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">Jákli Zsófia</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">28</td>
+<td style="text-align: center;">Kandó Dorottya Karina</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">Karawaj Ágnes Emese</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Karawaj Dániel</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">Kármán György</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Katona Anna</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">27</td>
+<td style="text-align: center;">Kiss Borbála</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">22</td>
+<td style="text-align: center;">Kiss Zsófia Fruzsina</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">Komáromi Bálint</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">Komáromi Réka</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">Kószó Dalma</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">25</td>
+<td style="text-align: center;">Kovács Antal</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">Kovács Barnabás</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">Kovács Blanka Erzsébet</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">Kovács Borbála</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">Kovács Csaba Pál</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">Kovács Ferenc András</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">27</td>
+<td style="text-align: center;">Kovács Fülöp</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">Kovács Gedeon</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">Kovács Gellért</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">Kovács Gerzson</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">Kovács Gizella Zsuzsanna</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">Kovács Julianna Róza</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">Kovács Márton</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">Kovács Mihály</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">Kovács Október Áron</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">Kovács Orsolya</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">Kovács-Garai Annamária</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Kovács-Garai Annaróza</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">Kovács-Garai Bertalan</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">Kovács-Garai Frigyes</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">Kovács-Molnár Anna Mária</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">Kovács-Molnár Boldizsár</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">Kovácsné Csiky Julianna</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">Kovácsné Keszléri Erzsébet</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">Kulcsár Judit</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">28</td>
+<td style="text-align: center;">László Noémi</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">Lőrincz Viktor Rudolf</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">Marik Dávid Attila</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">25</td>
+<td style="text-align: center;">Márki Léna</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">Marozs Albert László</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">Mendlik András</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">23</td>
+<td style="text-align: center;">Miklósi Aranka</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">Mócsi László Levente</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">23</td>
+<td style="text-align: center;">Mócsi Margit Gizella</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">Mócsiné Csiky Zsuzsanna</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">Molnár Viktória</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">Mónus Dóra</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">28</td>
+<td style="text-align: center;">Novotnik András Ákos</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">Nyeste Gábor</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">Parai Dávid</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">Péter Ákos</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">27</td>
+<td style="text-align: center;">Péter Áron</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">22</td>
+<td style="text-align: center;">Péter Sára</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">Péter Veronika</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">Péterné dr. Csiky Orsolya</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">Prágai Botond</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">19</td>
+<td style="text-align: center;">Pucet Lily</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Sárosdi Zsombor</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">23</td>
+<td style="text-align: center;">Sárvári Panna</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">Schiffler György</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">27</td>
+<td style="text-align: center;">Schindler András</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">Stella Williams</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">19</td>
+<td style="text-align: center;">Szabó Diána Dominique</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">Szabó Zsombor Gyula</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">Szakács Bence Balázs</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">Szász Keve</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">Szatmáry Anna</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">Szende Adorján Péter</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">29</td>
+<td style="text-align: center;">Szende Firtos Júlia</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">26</td>
+<td style="text-align: center;">Szende Iringó Ilona</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">Szende Kristóf</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">25</td>
+<td style="text-align: center;">Szende Magdaléna Mária</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">28</td>
+<td style="text-align: center;">Szende Simon Kristóf</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">19</td>
+<td style="text-align: center;">Szentkereszty Hanna</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">Szilágyi Patrik</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">Szöcs Péter Zoltán</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">Szűcs Antal Kristóf</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Szücs Dóra</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">Szűcs Dóra</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">Szücs Emese</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">Szűcs Ildikó Aranka</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">Szűcs János Attila</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">Szűcs Tamás Sándor</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">Szűcs Tamás Sándorné</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Szűcs Zoltán</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">Tárkányi Áron</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">26</td>
+<td style="text-align: center;">Tóth Kinga Boróka</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">29</td>
+<td style="text-align: center;">Török Kristóf Áron</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">Ungi Cecília</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Vass Bence</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">Vassné Kiss Judit</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">Vaszil Levente</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">29</td>
+<td style="text-align: center;">Vaszil Zita Krisztina</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">Vidra Bernadett</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">Załuska Árpád</td>
+<td style="text-align: center;"><input type="checkbox"></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
