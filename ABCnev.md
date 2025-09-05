@@ -1,4 +1,4 @@
-# ABC szerinti ülés rend
+# ABC szerinti ülés
 
 |	Asztal	|	Oldal	|	Szék	|	Név	|	jelen |
 |:-:|:-:|:-:|:-:|:-:|
@@ -12,7 +12,7 @@
 |	3	|	B	|	3	|	Balogh Rózsa	|	<input type="checkbox">	|
 |	3	|	B	|	1	|	Balogh Sándor	|	<input type="checkbox">	|
 |	3	|	B	|	4	|	Baloghné Kovács Rebeka	|	<input type="checkbox">	|
-|	2	|	A	|	18	|	Berthóty András	|	<input type="checkbox">	|
+|	2	|	A	|	18	|	Szentkereszty Hanna	|	<input type="checkbox">	|
 |	2	|	B	|	7	|	Bezdek István Györk	|	<input type="checkbox">	|
 |	2	|	B	|	22	|	Bódis Balázs Márk	|	<input type="checkbox">	|
 |	2	|	B	|	21	|	Bódisné Seidl Ágota Zita	|	<input type="checkbox">	|
@@ -30,13 +30,13 @@
 |	1	|	A	|	14	|	Csikyné Fodor Mária	|	<input type="checkbox">	|
 |	1	|	B	|	12	|	Csikyné Radnai Éva	|	<input type="checkbox">	|
 |	2	|	A	|	9	|	Csuzdi Péter	|	<input type="checkbox">	|
-|	2	|	A	|	14	|	Dalmadi Bálint	|	<input type="checkbox">	|
+|	2	|	A	|	14	|	Dr. Khern Mandula Csilla	|	<input type="checkbox">	|
 |	1	|	B	|	30	|	Dion Pociask	|	<input type="checkbox">	|
 |	1	|	B	|	13	|	Dr. Csiky János	|	<input type="checkbox">	|
 |	1	|	A	|	15	|	Dr. Csiky László	|	<input type="checkbox">	|
 |	1	|	A	|	22	|	Dr. Csiky Márton Áron	|	<input type="checkbox">	|
 |	1	|	A	|	13	|	Dr. Csiky Miklós	|	<input type="checkbox">	|
-|	2	|	A	|	15	|	Dr. Khern Mandula Csilla	|	<input type="checkbox">	|
+|	2	|	A	|	15	|	Imri Jázmin	|	<input type="checkbox">	|
 |	1	|	A	|	7	|	Dr. Kovács Zoltán	|	<input type="checkbox">	|
 |	2	|	B	|	16	|	Dr. Mihalovics Emese	|	<input type="checkbox">	|
 |	1	|	A	|	12	|	Dr. Péter Róbert István	|	<input type="checkbox">	|
@@ -50,7 +50,7 @@
 |	4	|	A	|	9	|	Endrédy Balázs	|	<input type="checkbox">	|
 |	4	|	B	|	8	|	Enyedi Mózes	|	<input type="checkbox">	|
 |	2	|	B	|	5	|	Farkas Gabriella	|	<input type="checkbox">	|
-|	2	|	A	|	13	|	Ferencz Gyula	|	<input type="checkbox">	|
+|	2	|	A	|	13	|	Dalmadi Bálint	|	<input type="checkbox">	|
 |	2	|	B	|	14	|	Ferencz Katalin	|	<input type="checkbox">	|
 |	2	|	A	|	6	|	Forgács Ádám	|	<input type="checkbox">	|
 |	4	|	B	|	9	|	Földváry Zsófia Sára	|	<input type="checkbox">	|
@@ -69,9 +69,9 @@
 |	2	|	A	|	10	|	Halász Márk	|	<input type="checkbox">	|
 |	2	|	B	|	12	|	Hamar Boldizsár	|	<input type="checkbox">	|
 |	4	|	B	|	7	|	Hegedűs Vince	|	<input type="checkbox">	|
-|	2	|	A	|	17	|	Héjj-Csizmazia Kincső	|	<input type="checkbox">	|
+|	2	|	A	|	17	|	Berthóty András	|	<input type="checkbox">	|
 |	1	|	B	|	26	|	ifj. Csiky János	|	<input type="checkbox">	|
-|	2	|	A	|	16	|	Imri Jázmin	|	<input type="checkbox">	|
+|	2	|	A	|	16	|	Héjj-Csizmazia Kincső	|	<input type="checkbox">	|
 |	2	|	B	|	9	|	Jákli Zsófia	|	<input type="checkbox">	|
 |	1	|	A	|	28	|	Kandó Dorottya Karina	|	<input type="checkbox">	|
 |	4	|	A	|	2	|	Karawaj Ágnes Emese	|	<input type="checkbox">	|
@@ -95,7 +95,7 @@
 |	3	|	B	|	9	|	Kovács Gerzson	|	<input type="checkbox">	|
 |	3	|	B	|	11	|	Kovács Gizella Zsuzsanna	|	<input type="checkbox">	|
 |	1	|	B	|	24	|	Kovács Julianna Róza	|	<input type="checkbox">	|
-|	2	|	A	|	12	|	Kovács Márton	|	<input type="checkbox">	|
+|	2	|	A	|	12	|	Ferencz Gyula	|	<input type="checkbox">	|
 |	1	|	A	|	24	|	Kovács Mihály	|	<input type="checkbox">	|
 |	1	|	B	|	10	|	Kovács Október Áron	|	<input type="checkbox">	|
 |	2	|	B	|	20	|	Kovács Orsolya	|	<input type="checkbox">	|
@@ -146,7 +146,7 @@
 |	1	|	B	|	17	|	Szende Kristóf	|	<input type="checkbox">	|
 |	1	|	A	|	25	|	Szende Magdaléna Mária	|	<input type="checkbox">	|
 |	1	|	B	|	28	|	Szende Simon Kristóf	|	<input type="checkbox">	|
-|	2	|	A	|	19	|	Szentkereszty Hanna	|	<input type="checkbox">	|
+|	2	|	A	|	19	|	Tárkányi Áron	|	<input type="checkbox">	|
 |	4	|	B	|	3	|	Szilágyi Patrik	|	<input type="checkbox">	|
 |	4	|	B	|	2	|	Szöcs Péter Zoltán	|	<input type="checkbox">	|
 |	1	|	B	|	2	|	Szűcs Antal Kristóf	|	<input type="checkbox">	|
@@ -158,7 +158,7 @@
 |	1	|	B	|	3	|	Szűcs Tamás Sándor	|	<input type="checkbox">	|
 |	1	|	B	|	4	|	Szűcs Tamás Sándorné	|	<input type="checkbox">	|
 |	1	|	A	|	1	|	Szűcs Zoltán	|	<input type="checkbox">	|
-|	2	|	A	|	20	|	Tárkányi Áron	|	<input type="checkbox">	|
+|	2	|	A	|	20	|	Szénási-Nádor Ervin	|	<input type="checkbox">	|
 |	2	|	B	|	26	|	Tóth Kinga Boróka	|	<input type="checkbox">	|
 |	2	|	B	|	29	|	Török Kristóf Áron	|	<input type="checkbox">	|
 |	4	|	B	|	12	|	Ungi Cecília	|	<input type="checkbox">	|
