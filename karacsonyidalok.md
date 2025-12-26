@@ -65,8 +65,7 @@ felhő fodrán téged látlak, fénylő Isten!
 
 Testem a kőszál, rám alapozzál,<br>
 testem a templom, benne lakozzál,<br>
-élő kövek hadd legyünk majd<br>
-szentélyedben,
+élő kövek hadd legyünk majd szentélyedben,<br>
 tested-lelked bennünk lüktet, isten-ember!
 
 <div class="page-break"></div>
